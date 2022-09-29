@@ -14,7 +14,7 @@
     if ($row > 0) {
       if ($data['level']=='admin') {
         $_SESSION['logged'] = 1;
-      }elseif ($data['level']=='karyawan') {
+      }elseif ($data['level']=='pegawai') {
         $_SESSION['logged'] = 2;
       }elseif ($data['level']=='eselon 3') {
         $_SESSION['logged'] = 3;

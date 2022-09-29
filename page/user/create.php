@@ -57,7 +57,7 @@
               <select name="level" class="form-control">
                 <option selected disabled>-- Pilih Level --</option>
                 <option value="admin">Admin</option>
-                <option value="karyawan">Karyawan</option>
+                <option value="pegawai">Pegawai</option>
                 <option value="eselon 3">Eselon 3</option>
                 <option value="eselon 4">Eselon 4</option>
               </select>

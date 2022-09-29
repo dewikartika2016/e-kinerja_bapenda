@@ -13,15 +13,15 @@
         <div class="callout-infout callout-info home">
           <h4>Selamat datang <?= $_SESSION['name'] ?></h4>
 
-          <p>Sistem penilaian kinerja karyawan <b>PT. Gadar Medik Indonesia</b></p>
+          <p>Sistem Laporan Kerja Harian Pegawai Non-ASN <b>Badan Pendapatan Daerah Sumatera Barat</b></p>
         </div>
     <?php else: ?>
 
 		<div class="callout-infout callout-info home">
-          <h4>Selamat datang di E-Kinerja Karyawan</h4>
+          <h4>Selamat datang</h4>
 
-         <p>Sistem penilaian kinerja karyawan 
-          <b>PT. Gadar Medik Indonesia</b></p>
+         <p>Sistem Laporan Kerja Harian Pegawai Non-ASN 
+          <b>Badan Pendapatan Daerah Sumatera Barat</b></p>
         </div>
     <?php endif; ?>
 

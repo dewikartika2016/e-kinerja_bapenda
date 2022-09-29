@@ -1,7 +1,7 @@
 <?php 
 
 	$id = $_GET['id'];
-  $sql = "select * from user where id_user='$id'";
+  $sql = "select * from users where id='$id'";
   $query = mysqli_query($con, $sql);
   $data = mysqli_fetch_array($query);
 
@@ -11,10 +11,12 @@
     $nama = $_POST['nama'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $level = $_POST['level'];
+    $email = $_POST['email'];
+    $no_telp = $_POST['no_telp'];
+    $level    = $_POST['level'];
     // $peran = $_POST['peran'];
 
-    $sql = "update user set nama='$nama', username='$username', password='$password', Level='$level' where id_user='$id'";
+    $sql = "update users set nama='$nama', username='$username', password='$password', email='$email', no_telp='$no_telp', level='$level' where id='$id'";
     $query = mysqli_query($con, $sql);
     if ($query) {
       echo "<script>alert('Data berhasil diubah!');window.location.href='index.php?p=user'</script>";
@@ -44,6 +46,14 @@
             <div class="form-group">
               <label for="exampleInputEmail1">Username</label>
               <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Username" name="username" required value="<?= $data['username'] ?>">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Password</label>
+              <input type="password" class="form-control" id="exampleInputEmail1" placeholder="Masukan Password" name="password" required value="<?= $data['password'] ?>">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">E-mail</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Masukan E-mail" name="email" required value="<?= $data['email'] ?>">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Password</label>
