@@ -99,7 +99,7 @@
         <ul class="nav navbar-nav">
           
           <?php if (@$_SESSION['logged'] == 1): ?>
-            <li><a class="dropdown-item" href="?p=karyawan">Data Pengguna</a></li>
+            <!-- <li><a class="dropdown-item" href="?p=karyawan">Data Pengguna</a></li> -->
           <!-- <li><a class="dropdown-item" href="?p=alternatif">Penilaian karyawan</a></li> -->
          <!--  <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu">

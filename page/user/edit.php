@@ -56,15 +56,17 @@
               <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Masukan E-mail" name="email" required value="<?= $data['email'] ?>">
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Password</label>
-              <input type="password" class="form-control" id="exampleInputEmail1" placeholder="Masukan Password" name="password" required value="<?= $data['password'] ?>">
+              <label for="exampleInputEmail1">No.Telp</label>
+              <input type="no_telp" class="form-control" id="exampleInputEmail1" placeholder="Masukan No.Telp" name="no_telp" required value="<?= $data['no_telp'] ?>">
             </div>
             <div class="form-group">
               <label>Level</label>
-              <select name="Level" class="form-control custom-select">
+              <select name="level" class="form-control custom-select">
                 <option disabled>-- Pilih Level --</option>
                 <option value="admin" <?= ($data['level']=='admin')?'selected':'' ?>>Admin</option>
-                <option value="operator" <?= ($data['level']=='operator')?'selected':'' ?>>Operator</option>
+                <option value="pegawai" <?= ($data['level']=='pegawai')?'selected':'' ?>>Pegawai</option>
+                <option value="eselon 3" <?= ($data['level']=='eselon 3')?'selected':'' ?>>Eselon 3</option>
+                <option value="eselon 4" <?= ($data['level']=='eselon 4')?'selected':'' ?>>Eselon 4</option>
               </select>
             </div>
           </div>

@@ -16,7 +16,7 @@
 
       <div class="box">
         <div class="box-header">
-          <h3 class="box-title">Data Table With Full Features</h3><span class="pull-right"><a class="btn btn-success" href="?p=user&act=create">Tambah Data User</a></span>
+          <h3 class="box-title">Data User</h3><span class="pull-right"><a class="btn btn-success" href="?p=user&act=create">Tambah Data User</a></span>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
