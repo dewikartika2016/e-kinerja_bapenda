@@ -9,7 +9,7 @@
     $no_telp = $_POST['no_telp'];
     $level    = $_POST['level'];
 
-		$sql = "insert into user values(null, '$nama', '$username', '$password', '$email', '$no_telp', '$level')";
+		$sql = "insert into users values(null, '$nama', '$username', '$password', '$email', '$no_telp', '$level')";
 		$query = mysqli_query($con, $sql);
 		if ($query) {
 			echo "<script>alert('Data berhasil ditambahkan!');window.location.href='index.php?p=user'</script>";
@@ -54,7 +54,7 @@
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Level</label>
-              <select name="Level" class="form-control">
+              <select name="level" class="form-control">
                 <option selected disabled>-- Pilih Level --</option>
                 <option value="admin">Admin</option>
                 <option value="karyawan">Karyawan</option>

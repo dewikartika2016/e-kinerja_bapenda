@@ -1,7 +1,7 @@
 <?php 
   if (isset($_GET['delete'])) {
     $id = $_GET['id'];
-    $sql = "delete from user where id_user='$id'";
+    $sql = "delete from users where id='$id'";
     $query = mysqli_query($con, $sql);
     if ($query) {
       echo "<script>alert('Data berhasil dihapus!');window.location.href='index.php?p=user'</script>";
@@ -27,7 +27,9 @@
               <th>Nama</th>
               <th>Username</th>
               <!-- <th>Password</th> -->
-              <!-- <th>Peran</th> -->
+              <th>E-mail</th>
+              <th>No.Telp</th>
+              <th>Level</th>
               <th>Aksi</th>
             </tr>
             </thead>
@@ -35,7 +37,7 @@
             	<?php 
 
                 $no = 0;
-            		$sql = "select * from user";
+            		$sql = "select * from users";
             		$query = mysqli_query($con, $sql);
             		while ($row = mysqli_fetch_assoc($query)):
                   $no++;
@@ -44,11 +46,14 @@
             	 	<td><?= $no ?></td>
             	 	<td><?= $row['nama'] ?></td>
                 <td><?= $row['username'] ?></td>
+                <td><?= $row['email'] ?></td>
+                <td><?= $row['no_telp'] ?></td>
+                <td><?= $row['level'] ?></td>
                 <!-- <td><?= $row['password'] ?></td> -->
                 <!-- <td><?= $row['peran'] ?></td> -->
                 <td>
-                  <a href="index.php?p=user&act=edit&id=<?= $row['id_user'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
-                  <a href="index.php?p=user&delete&id=<?= $row['id_user'] ?>" class="btn btn-danger" onclick="return confirm('Apakah data akan dihapus?')"><i class="glyphicon glyphicon-trash"></i></a>
+                  <a href="index.php?p=user&act=edit&id=<?= $row['id'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                  <a href="index.php?p=user&delete&id=<?= $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Apakah yakin ingin menghapus data?')"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             	 </tr>
             	<?php endwhile; ?>
