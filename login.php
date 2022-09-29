@@ -28,7 +28,8 @@
       $_SESSION['name'] = $data['nama_lengkap'];
       
       echo "<script>alert('Login berhasil!');window.location.href='index.php'</script>";  
-
+    } else {
+      echo "<script>alert('Username atau Password Salah')</script>";
     }
   //    else {
 
