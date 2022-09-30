@@ -25,7 +25,7 @@
       }
       //$_SESSION['logged'] = 1;
       $_SESSION['id'] = $data['id'];
-      $_SESSION['name'] = $data['nama_lengkap'];
+      $_SESSION['name'] = $data['nama'];
       
       echo "<script>alert('Login berhasil!');window.location.href='index.php'</script>";  
     } else {

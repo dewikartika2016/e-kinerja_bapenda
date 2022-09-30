@@ -11,7 +11,7 @@
 	<?php if (@$_SESSION['logged'] == 1 or @$_SESSION['logged'] == 2): ?>
 		
         <div class="callout-infout callout-info home">
-          <h4>Selamat datang <?= $_SESSION['name'] ?></h4>
+          <h4>Selamat Datang <?= $_SESSION['name'] ?></h4>
 
           <p>Sistem Laporan Kerja Harian Pegawai Non-ASN <b>Badan Pendapatan Daerah Sumatera Barat</b></p>
         </div>
