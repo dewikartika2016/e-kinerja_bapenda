@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Sep 2022 pada 09.28
+-- Waktu pembuatan: 02 Okt 2022 pada 15.21
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -144,7 +144,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nama`, `username`, `password`, `email`, `no_telp`, `level`) VALUES
-(1, '', 'dewi', 'dewi', 'dewi@gmail.com', '082267369831', 'admin'),
+(1, 'Dewi Kartika', 'admin', 'admin', 'dewi@gmail.com', '082267369831', 'admin'),
 (3, '', 'eselon3', 'eselon3', '', '', 'eselon 3'),
 (4, '', 'eselon4', 'eselon4', '', '', 'eselon 4'),
 (9, 'lisca', 'lisca', 'lisca', 'lisca@gmail.com', '0208492836574', 'pegawai');
