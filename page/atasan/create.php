@@ -10,7 +10,7 @@
 		$sql = "insert into atasan values(null, '$nip', '$nama_atasan', '$jabatan')";
 		$query = mysqli_query($con, $sql);
 		if ($query) {
-			echo "<script>alert('Data berhasil ditambahkan!');window.location.href='index.php?p=atasan'</script>";
+			echo "<script>alert('Data berhasil ditambahkan!');window.location.href='detail_index.php?p=atasan'</script>";
 		} else {
 			echo "Error : " . mysqli_error($con);
 		}

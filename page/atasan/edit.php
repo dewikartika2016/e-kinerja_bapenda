@@ -15,7 +15,7 @@
     $sql = "update atasan set nip='$nip', nama_atasan='$nama_atasan', jabatan='$jabatan' where id='$id'";
     $query = mysqli_query($con, $sql);
     if ($query) {
-      echo "<script>alert('Data Atasan Berhasil Diubah!');window.location.href='index.php?p=atasan'</script>";
+      echo "<script>alert('Data Atasan Berhasil Diubah!');window.location.href='detail_index.php?p=atasan'</script>";
     } else {
       echo "Error : " . mysqli_error($con);
     }

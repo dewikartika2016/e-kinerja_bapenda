@@ -12,7 +12,7 @@
 		$sql = "insert into users values(null, '$nama', '$username', '$password', '$email', '$no_telp', '$level')";
 		$query = mysqli_query($con, $sql);
 		if ($query) {
-			echo "<script>alert('Data berhasil ditambahkan!');window.location.href='index.php?p=user'</script>";
+			echo "<script>alert('Data berhasil ditambahkan!');window.location.href='detail_index.php?p=user'</script>";
 		} else {
 			echo "Error : " . mysqli_error($con);
 		}
@@ -58,8 +58,7 @@
                 <option selected disabled>-- Pilih Level --</option>
                 <option value="admin">Admin</option>
                 <option value="pegawai">Pegawai</option>
-                <option value="eselon 3">Eselon 3</option>
-                <option value="eselon 4">Eselon 4</option>
+                <option value="atasan">Atasan</option>
               </select>
             </div>
           </div>

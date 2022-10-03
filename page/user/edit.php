@@ -19,7 +19,7 @@
     $sql = "update users set nama='$nama', username='$username', password='$password', email='$email', no_telp='$no_telp', level='$level' where id='$id'";
     $query = mysqli_query($con, $sql);
     if ($query) {
-      echo "<script>alert('Data berhasil diubah!');window.location.href='index.php?p=user'</script>";
+      echo "<script>alert('Data berhasil diubah!');window.location.href='detail_index.php?p=user'</script>";
     } else {
       echo "Error : " . mysqli_error($con);
     }
