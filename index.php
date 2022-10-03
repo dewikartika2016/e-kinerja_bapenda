@@ -125,7 +125,7 @@
             </a>
           </li>
           <?php endif ?>
-          <?php if (@$_SESSION['logged'] == 2 || @$_SESSION['logged'] == 1): ?>
+          <?php if (@$_SESSION['logged'] == 3 || @$_SESSION['logged'] == 2 || @$_SESSION['logged'] == 1): ?>
           <!-- <li><a class="dropdown-item" href="?p=alternatif">Penilaian karyawan</a></li> -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu">
@@ -160,17 +160,21 @@
         
         <?php if (@$_SESSION['logged'] == 1): ?>
           <li class="treeview <?= (@$_GET['p']=='user')?'active':'' ?>">
-            <a href="#">
-              <i class="fa fa-user"></i> <span>User</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
+            <a href="?p=user">
+              <i class="fa fa-user"></i> <span>Kelola Data User</span>
             </a>
-            <ul class="treeview-menu">
-              <li><a href="?p=user&act=create"><i class="fa fa-circle-o"></i> Tambah User </a></li>
-              <li><a href="?p=user"><i class="fa fa-circle-o"></i> Lihat User</a></li>
-            </ul>
           </li>
+          <li class="treeview <?= (@$_GET['p']=='atasan')?'active':'' ?>">
+            <a href="?p=atasan">
+              <i class="fa fa-user"></i> <span>Kelola Data Atasan</span>
+            </a>
+          </li>
+          <li class="treeview <?= (@$_GET['p']=='pegawai')?'active':'' ?>">
+            <a href="?p=pegawai">
+              <i class="fa fa-user"></i> <span>Kelola Data Pegawai</span>
+            </a>
+          </li>
+          
           <!-- <li class="treeview <?= (@$_GET['p']=='karyawan')?'active':'' ?>">
             <a href="#">
               <i class="fa fa-user-secret"></i> <span>Karyawan</span>

@@ -16,10 +16,8 @@
         $_SESSION['logged'] = 1;
       }elseif ($data['level']=='pegawai') {
         $_SESSION['logged'] = 2;
-      }elseif ($data['level']=='eselon 3') {
+      }elseif ($data['level']=='atasan') {
         $_SESSION['logged'] = 3;
-      }elseif ($data['level']=='eselon 4') {
-        $_SESSION['logged'] = 4;
       }else{
         $_SESSION['logged'] = null;
       }
