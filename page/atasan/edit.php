@@ -13,7 +13,7 @@
     $jabatan = $_POST['jabatan'];
     $bidang = $_POST['bidang'];
 
-    $sql = "update atasan set nip='$nip', nama_atasan='$nama_atasan', jabatan='$jabatan', jabatan='$jabatan' where id_atasan='$id_atasan'";
+    $sql = "update atasan set nip='$nip', nama_atasan='$nama_atasan', jabatan='$jabatan', bidang='$bidang' where id_atasan='$id_atasan'";
     $query = mysqli_query($con, $sql);
     if ($query) {
       echo "<script>alert('Data Atasan Berhasil Diubah!');window.location.href='detail_index.php?p=atasan'</script>";
@@ -57,9 +57,9 @@
               <label for="exampleInputEmail1">Bidang</label>
               <select name="bidang" class="form-control custom-select">
                 <option disabled>-- Pilih Bidang --</option>
-                <option value="Divisi Sistem Informasi" <?= ($data['level']=='Divisi Sistem Informasi')?'selected':'' ?>>Divisi Sistem Informasi</option>
-                <option value="Divisi Pemasaran" <?= ($data['level']=='Divisi Pemasaran')?'selected':'' ?>>Divisi Pemasaran</option>
-                <option value="Divisi Sumber Daya Manusia" <?= ($data['level']=='Divisi Sumber Daya Manusia')?'selected':'' ?>>Divisi Sumber Daya Manusia</option>
+                <option value="Divisi Sistem Informasi" <?= ($data['bidang']=='Divisi Sistem Informasi')?'selected':'' ?>>Divisi Sistem Informasi</option>
+                <option value="Divisi Pemasaran" <?= ($data['bidang']=='Divisi Pemasaran')?'selected':'' ?>>Divisi Pemasaran</option>
+                <option value="Divisi Sumber Daya Manusia" <?= ($data['bidang']=='Divisi Sumber Daya Manusia')?'selected':'' ?>>Divisi Sumber Daya Manusia</option>
               </select>
             </div>
         

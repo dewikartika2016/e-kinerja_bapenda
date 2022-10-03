@@ -1,7 +1,7 @@
 <?php 
   if (isset($_GET['delete'])) {
-    $id = $_GET['id'];
-    $sql = "delete from users where id='$id'";
+    $id_user = $_GET['id_user'];
+    $sql = "delete from users where id_user='$id_user'";
     $query = mysqli_query($con, $sql);
     if ($query) {
       echo "<script>alert('Data berhasil dihapus!');window.location.href='detail_index.php?p=user'</script>";
@@ -52,8 +52,8 @@
                 <!-- <td><?= $row['password'] ?></td> -->
                 <!-- <td><?= $row['peran'] ?></td> -->
                 <td>
-                  <a href="detail_index.php?p=user&act=edit&id=<?= $row['id'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
-                  <a href="detail_index.php?p=user&delete&id=<?= $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Apakah yakin ingin menghapus data?')"><i class="glyphicon glyphicon-trash"></i></a>
+                  <a href="detail_index.php?p=user&act=edit&id_user=<?= $row['id_user'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                  <a href="detail_index.php?p=user&delete&id_user=<?= $row['id_user'] ?>" class="btn btn-danger" onclick="return confirm('Apakah yakin ingin menghapus data?')"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             	 </tr>
             	<?php endwhile; ?>

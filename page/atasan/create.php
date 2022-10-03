@@ -51,7 +51,7 @@
             <div class="form-group">
               <label for="exampleInputEmail1">Bidang</label>
               <select name="bidang" class="form-control">
-                <option selected disabled>-- Pilih Level --</option>
+                <option selected disabled>-- Pilih Bidang --</option>
                 <option value="Divisi Sistem Informasi">Divisi Sistem Informasi</option>
                 <option value="Divisi Pemasaran">Divisi Pemasaran</option>
                 <option value="Divisi Sumber Daya Manusia">Divisi Sumber Daya Manusia</option>

@@ -1,7 +1,7 @@
 <?php 
 
-	$id = $_GET['id'];
-  $sql = "select * from users where id='$id'";
+	$id_user = $_GET['id_user'];
+  $sql = "select * from users where id_user='$id_user'";
   $query = mysqli_query($con, $sql);
   $data = mysqli_fetch_array($query);
 
@@ -16,7 +16,7 @@
     $level    = $_POST['level'];
     // $peran = $_POST['peran'];
 
-    $sql = "update users set nama='$nama', username='$username', password='$password', email='$email', no_telp='$no_telp', level='$level' where id='$id'";
+    $sql = "update users set nama='$nama', username='$username', password='$password', email='$email', no_telp='$no_telp', level='$level' where id_user='$id_user'";
     $query = mysqli_query($con, $sql);
     if ($query) {
       echo "<script>alert('Data berhasil diubah!');window.location.href='detail_index.php?p=user'</script>";
