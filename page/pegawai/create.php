@@ -1,15 +1,13 @@
-<?php
-$atasan = mysqli_query($mysqli,"SELECT * FROM atasan");
-?>
-<?php
+<?php 
+
 	if (isset($_POST['simpan'])) {
 
-        $nama_pegawai = $_POST['nama_pegawai'];
-        $jabatan = $_POST['jabatan'];
-        $bidang = $_POST['bidang'];
-        $atasan = $_POST['atasan'];
-    
-		$sql = "insert into pegawai values(null, '$nama_pegawai', '$jabatan', '$bidang', '$atasan')";
+    $nama_pegawai = $_POST['nama_pegawai'];
+    $jabatan = $_POST['jabatan'];
+    $bidang = $_POST['bidang'];
+    $atasan = $_POST['atasan'];
+
+    $sql = "insert into pegawai values(null, '$nama_pegawai', '$jabatan', '$bidang', '$id_atasan')";
 		$query = mysqli_query($con, $sql);
 		if ($query) {
 			echo "<script>alert('Data berhasil ditambahkan!');window.location.href='detail_index.php?p=pegawai'</script>";
@@ -56,12 +54,13 @@ $atasan = mysqli_query($mysqli,"SELECT * FROM atasan");
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Nama Atasan</label>
-              <select name="nama_atasan" class="form-control">
+              <select name="id_atasan" class="form-control">
                 <option selected disabled>-- Pilih Atasan --</option>
                 <?php
+                  $atasan = mysqli_query($mysqli,"SELECT * FROM atasan");
 						      while ($data=mysqli_fetch_array($atasan)) {
 				      	?>
-                    <option value="<?php echo $data['id']; ?>">
+                    <option value="<?php echo $data['id_atasan']; ?>">
                     <?php echo $data['nama_atasan']; ?> </option>
                 <?php
                     }

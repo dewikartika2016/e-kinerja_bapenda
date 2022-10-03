@@ -1,7 +1,7 @@
 <?php 
   if (isset($_GET['delete'])) {
-    $id = $_GET['id'];
-    $sql = "delete from atasan where id='$id'";
+    $id_atasan = $_GET['id_atasan'];
+    $sql = "delete from atasan where id_atasan='$id_atasan'";
     $query = mysqli_query($con, $sql);
     if ($query) {
       echo "<script>alert('Data Atasan Berhasil Dihapus!');window.location.href='detail_index.php?p=atasan'</script>";
@@ -47,8 +47,8 @@
                 <td><?= $row['jabatan'] ?></td>
                 <td><?= $row['bidang'] ?></td>
                 <td>
-                  <a href="detail_index.php?p=atasan&act=edit&id=<?= $row['id'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
-                  <a href="detail_index.php?p=atasan&delete&id=<?= $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data Atasan?')"><i class="glyphicon glyphicon-trash"></i></a>
+                  <a href="detail_index.php?p=atasan&act=edit&id_atasan=<?= $row['id_atasan'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                  <a href="detail_index.php?p=atasan&delete&id_atasan=<?= $row['id_atasan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data Atasan?')"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             	 </tr>
             	<?php endwhile; ?>

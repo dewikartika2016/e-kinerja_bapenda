@@ -1,7 +1,7 @@
 <?php 
   if (isset($_GET['delete'])) {
-    $id = $_GET['id'];
-    $sql = "delete from pegawai where id='$id'";
+    $id_pegawai = $_GET['id_pegawai'];
+    $sql = "delete from pegawai where id_pegawai='$id_pegawai'";
     $query = mysqli_query($con, $sql);
     if ($query) {
       echo "<script>alert('Data Pegawai Berhasil Dihapus!');window.location.href='detail_index.php?p=pegawai'</script>";
@@ -47,8 +47,8 @@
                     <td><?= $row['bidang'] ?></td>
                     <td><?= $row['nama_atasan'] ?></td>
                 <td>
-                  <a href="detail_index.php?p=pegawai&act=edit&id=<?= $row['id'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
-                  <a href="detail_index.php?p=pegawai&delete&id=<?= $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data Pegawai?')"><i class="glyphicon glyphicon-trash"></i></a>
+                  <a href="detail_index.php?p=pegawai&act=edit&id_pegawai=<?= $row['id_pegawai'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                  <a href="detail_index.php?p=pegawai&delete&id_pegawai=<?= $row['id_pegawai'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data Pegawai?')"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             	 </tr>
             	<?php endwhile; ?>

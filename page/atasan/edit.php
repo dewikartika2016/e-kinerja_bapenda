@@ -1,7 +1,7 @@
 <?php 
 
-	$id = $_GET['id'];
-  $sql = "select * from atasan where id='$id'";
+	$id_atasan = $_GET['id_atasan'];
+  $sql = "select * from atasan where id_atasan='$id_atasan'";
   $query = mysqli_query($con, $sql);
   $data = mysqli_fetch_array($query);
 
@@ -13,7 +13,7 @@
     $jabatan = $_POST['jabatan'];
     $bidang = $_POST['bidang'];
 
-    $sql = "update atasan set nip='$nip', nama_atasan='$nama_atasan', jabatan='$jabatan', jabatan='$jabatan' where id='$id'";
+    $sql = "update atasan set nip='$nip', nama_atasan='$nama_atasan', jabatan='$jabatan', jabatan='$jabatan' where id_atasan='$id_atasan'";
     $query = mysqli_query($con, $sql);
     if ($query) {
       echo "<script>alert('Data Atasan Berhasil Diubah!');window.location.href='detail_index.php?p=atasan'</script>";
