@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Okt 2022 pada 15.21
+-- Waktu pembuatan: 03 Okt 2022 pada 10.34
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -24,46 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `approval`
---
-
-CREATE TABLE `approval` (
-  `id` int(11) NOT NULL,
-  `approval_kegiatan` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `atasan`
 --
 
 CREATE TABLE `atasan` (
-  `id` int(11) NOT NULL,
-  `nama_atasan` varchar(255) NOT NULL
+  `id_atasan` int(11) NOT NULL,
+  `nip` varchar(50) NOT NULL,
+  `nama_atasan` varchar(255) NOT NULL,
+  `jabatan` varchar(50) NOT NULL,
+  `bidang` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Struktur dari tabel `bidang`
+-- Dumping data untuk tabel `atasan`
 --
 
-CREATE TABLE `bidang` (
-  `id` int(11) NOT NULL,
-  `nama_bidang` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `jabatan`
---
-
-CREATE TABLE `jabatan` (
-  `id` int(11) NOT NULL,
-  `nama_jabatan` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `atasan` (`id_atasan`, `nip`, `nama_atasan`, `jabatan`, `bidang`) VALUES
+(1, '18278478364', 'jahdgfy', 'Staff', 'Divisi Pemasaran');
 
 -- --------------------------------------------------------
 
@@ -72,7 +49,7 @@ CREATE TABLE `jabatan` (
 --
 
 CREATE TABLE `kegiatan` (
-  `id` int(11) NOT NULL,
+  `id_kegiatan` int(11) NOT NULL,
   `uraian` varchar(255) NOT NULL,
   `satuan` varchar(255) NOT NULL,
   `target` varchar(255) NOT NULL,
@@ -86,9 +63,9 @@ CREATE TABLE `kegiatan` (
 --
 
 CREATE TABLE `kinerja` (
-  `id` int(11) NOT NULL,
+  `id_kinerja` int(11) NOT NULL,
   `nama_pegawai` int(11) NOT NULL,
-  `uraian_kegiatan` int(11) NOT NULL,
+  `id_kegiatan` int(11) NOT NULL,
   `waktu` time NOT NULL,
   `waktu_selesai` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -100,27 +77,11 @@ CREATE TABLE `kinerja` (
 --
 
 CREATE TABLE `pegawai` (
-  `id` int(11) NOT NULL,
-  `nip` varchar(100) NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `atasan` int(11) NOT NULL,
-  `jabatan` int(11) NOT NULL,
-  `detail_jabatan` varchar(255) NOT NULL,
-  `bidang` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user`
---
-
-CREATE TABLE `user` (
-  `id_user` int(20) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `id_pegawai` varchar(255) NOT NULL,
-  `level` varchar(255) NOT NULL
+  `id_pegawai` int(11) NOT NULL,
+  `nama_pegawai` varchar(255) NOT NULL,
+  `jabatan` varchar(125) NOT NULL,
+  `bidang` varchar(125) NOT NULL,
+  `id_atasan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -130,7 +91,7 @@ CREATE TABLE `user` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -143,133 +104,83 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `nama`, `username`, `password`, `email`, `no_telp`, `level`) VALUES
+INSERT INTO `users` (`id_user`, `nama`, `username`, `password`, `email`, `no_telp`, `level`) VALUES
 (1, 'Dewi Kartika', 'admin', 'admin', 'dewi@gmail.com', '082267369831', 'admin'),
-(3, '', 'eselon3', 'eselon3', '', '', 'eselon 3'),
-(4, '', 'eselon4', 'eselon4', '', '', 'eselon 4'),
-(9, 'lisca', 'lisca', 'lisca', 'lisca@gmail.com', '0208492836574', 'pegawai');
+(2, 'lisca', 'lisca', 'lisca', 'lisca@gmail.com', '0208492836574', 'pegawai');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `approval`
---
-ALTER TABLE `approval`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indeks untuk tabel `atasan`
 --
 ALTER TABLE `atasan`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `bidang`
---
-ALTER TABLE `bidang`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `jabatan`
---
-ALTER TABLE `jabatan`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_atasan`),
+  ADD KEY `nip` (`nip`);
 
 --
 -- Indeks untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_kegiatan`),
   ADD KEY `id_pegawai` (`id_pegawai`);
 
 --
 -- Indeks untuk tabel `kinerja`
 --
 ALTER TABLE `kinerja`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `uraian_kegiatan` (`uraian_kegiatan`),
+  ADD PRIMARY KEY (`id_kinerja`),
+  ADD KEY `uraian_kegiatan` (`id_kegiatan`),
   ADD KEY `nama_pegawai` (`nama_pegawai`);
 
 --
 -- Indeks untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `bidang` (`bidang`);
-
---
--- Indeks untuk tabel `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_pegawai`),
+  ADD KEY `atasan` (`id_atasan`);
 
 --
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`username`),
-  ADD UNIQUE KEY `id` (`id`),
-  ADD KEY `id_2` (`id`);
+  ADD PRIMARY KEY (`id_user`),
+  ADD KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT untuk tabel `approval`
---
-ALTER TABLE `approval`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT untuk tabel `atasan`
 --
 ALTER TABLE `atasan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `bidang`
---
-ALTER TABLE `bidang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `jabatan`
---
-ALTER TABLE `jabatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_atasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `kinerja`
 --
 ALTER TABLE `kinerja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kinerja` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `user`
---
-ALTER TABLE `user`
-  MODIFY `id_user` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -279,20 +190,20 @@ ALTER TABLE `users`
 -- Ketidakleluasaan untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  ADD CONSTRAINT `kegiatan_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `kegiatan_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `kinerja`
 --
 ALTER TABLE `kinerja`
-  ADD CONSTRAINT `kinerja_ibfk_1` FOREIGN KEY (`nama_pegawai`) REFERENCES `pegawai` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `kinerja_ibfk_2` FOREIGN KEY (`uraian_kegiatan`) REFERENCES `kegiatan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `kinerja_ibfk_1` FOREIGN KEY (`nama_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `kinerja_ibfk_2` FOREIGN KEY (`id_kegiatan`) REFERENCES `kegiatan` (`id_kegiatan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  ADD CONSTRAINT `pegawai_ibfk_1` FOREIGN KEY (`bidang`) REFERENCES `bidang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `pegawai_ibfk_2` FOREIGN KEY (`id_atasan`) REFERENCES `atasan` (`id_atasan`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

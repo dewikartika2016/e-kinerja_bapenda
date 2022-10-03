@@ -45,7 +45,7 @@
             	 	<td><?= $row['nama_pegawai'] ?></td>
                     <td><?= $row['jabatan'] ?></td>
                     <td><?= $row['bidang'] ?></td>
-                    <td><?= $row['nama_atasan'] ?></td>
+                    <td><?= $row['id_atasan'] ?></td>
                 <td>
                   <a href="detail_index.php?p=pegawai&act=edit&id_pegawai=<?= $row['id_pegawai'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
                   <a href="detail_index.php?p=pegawai&delete&id_pegawai=<?= $row['id_pegawai'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data Pegawai?')"><i class="glyphicon glyphicon-trash"></i></a>
