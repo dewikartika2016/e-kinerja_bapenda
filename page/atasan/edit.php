@@ -5,7 +5,6 @@
   $query = mysqli_query($con, $sql);
   $data = mysqli_fetch_array($query);
 
-
   if (isset($_POST['simpan'])) {
 
     $nip = $_POST['nip'];
@@ -38,7 +37,7 @@
           <div class="box-body">
             <div class="form-group">
               <label for="exampleInputEmail1">NIP</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan NIP" name="nip" required value="<?= $data['nip'] ?>">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="<?= $data['nip'] ?>" name="nip" required value disabled="<?= $data['nip'] ?>">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Nama Atasan</label>

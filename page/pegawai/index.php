@@ -1,3 +1,8 @@
+<?php
+  $pegawai = mysqli_query($con,"SELECT * FROM pegawai");
+  $atasan = mysqli_query($con,"SELECT * FROM atasan");
+?>
+
 <?php 
   if (isset($_GET['delete'])) {
     $id_pegawai = $_GET['id_pegawai'];
@@ -35,7 +40,8 @@
             	<?php 
 
                 $no = 0;
-            		$sql = "select * from pegawai";
+            		$sql = "select * from pegawai join atasan on pegawai.id_atasan=atasan.id_atasan order by id_pegawai";
+                // $sql = "select * from pegawai";
             		$query = mysqli_query($con, $sql);
             		while ($row = mysqli_fetch_assoc($query)):
                   $no++;
@@ -43,9 +49,9 @@
             	 <tr>
             	 	<td><?= $no ?></td>
             	 	<td><?= $row['nama_pegawai'] ?></td>
-                    <td><?= $row['jabatan'] ?></td>
-                    <td><?= $row['bidang'] ?></td>
-                    <td><?= $row['id_atasan'] ?></td>
+                <td><?= $row['jabatan'] ?></td>
+                <td><?= $row['bidang'] ?></td>
+                <td><?= $row['nama_atasan'] ?></td>
                 <td>
                   <a href="detail_index.php?p=pegawai&act=edit&id_pegawai=<?= $row['id_pegawai'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
                   <a href="detail_index.php?p=pegawai&delete&id_pegawai=<?= $row['id_pegawai'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data Pegawai?')"><i class="glyphicon glyphicon-trash"></i></a>

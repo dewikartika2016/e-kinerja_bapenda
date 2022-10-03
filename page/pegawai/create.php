@@ -55,7 +55,7 @@
               <select name="id_atasan" class="form-control">
                 <option selected disabled>-- Pilih Atasan --</option>
                 <?php
-                  $atasan = mysqli_query($mysqli,"SELECT * FROM atasan");
+                  $atasan = mysqli_query($con,"SELECT * FROM atasan");
 						      while ($data=mysqli_fetch_array($atasan)) {
 				      	?>
                     <option value="<?php echo $data['id_atasan']; ?>">
