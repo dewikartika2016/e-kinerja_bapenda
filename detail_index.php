@@ -366,11 +366,11 @@
 
                 case 'pegawai':
                   if ($action == "create") {
-                    include 'page/atasan/create.php';
+                    include 'page/pegawai/create.php';
                   } else if ($action == "edit") {
-                    include 'page/atasan/edit.php';
+                    include 'page/pegawai/edit.php';
                   } else {
-                    include 'page/atasan/index.php';
+                    include 'page/pegawai/index.php';
                   }
                   break;
   
