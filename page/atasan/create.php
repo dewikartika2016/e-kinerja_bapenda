@@ -5,9 +5,10 @@
         $nip = $_POST['nip'];
         $nama_atasan = $_POST['nama_atasan'];
         $jabatan = $_POST['jabatan'];
+        $bidang = $_POST['bidang'];
     
 
-		$sql = "insert into atasan values(null, '$nip', '$nama_atasan', '$jabatan')";
+		$sql = "insert into atasan values(null, '$nip', '$nama_atasan', '$jabatan', '$bidang')";
 		$query = mysqli_query($con, $sql);
 		if ($query) {
 			echo "<script>alert('Data berhasil ditambahkan!');window.location.href='detail_index.php?p=atasan'</script>";
@@ -40,7 +41,21 @@
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Jabatan</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jabatan" name="jabatan" required>
+              <select name="jabatan" class="form-control">
+                <option selected disabled>-- Pilih Jabatan --</option>
+                <option value="Kepala Bidang">Kepala Bidang</option>
+                <option value="Kepala Seksi">Kepala Seksi</option>
+                <option value="Staff">Staff</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Bidang</label>
+              <select name="bidang" class="form-control">
+                <option selected disabled>-- Pilih Level --</option>
+                <option value="Divisi Sistem Informasi">Divisi Sistem Informasi</option>
+                <option value="Divisi Pemasaran">Divisi Pemasaran</option>
+                <option value="Divisi Sumber Daya Manusia">Divisi Sumber Daya Manusia</option>
+              </select>
             </div>
           </div>
           <!-- /.box-body -->

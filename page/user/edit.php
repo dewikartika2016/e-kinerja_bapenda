@@ -65,8 +65,8 @@
                 <option disabled>-- Pilih Level --</option>
                 <option value="admin" <?= ($data['level']=='admin')?'selected':'' ?>>Admin</option>
                 <option value="pegawai" <?= ($data['level']=='pegawai')?'selected':'' ?>>Pegawai</option>
-                <option value="eselon 3" <?= ($data['level']=='eselon 3')?'selected':'' ?>>Eselon 3</option>
-                <option value="eselon 4" <?= ($data['level']=='eselon 4')?'selected':'' ?>>Eselon 4</option>
+                <option value="atasan" <?= ($data['level']=='atasan')?'selected':'' ?>>Atasan</option>
+
               </select>
             </div>
           </div>

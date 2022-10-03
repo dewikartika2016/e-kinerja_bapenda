@@ -27,6 +27,7 @@
               <th>NIP</th>
               <th>Nama Atasan</th>
               <th>Jabatan</th>
+              <th>Bidang</th>
               <th>Aksi</th>
             </tr>
             </thead>
@@ -44,6 +45,7 @@
             	 	<td><?= $row['nip'] ?></td>
                 <td><?= $row['nama_atasan'] ?></td>
                 <td><?= $row['jabatan'] ?></td>
+                <td><?= $row['bidang'] ?></td>
                 <td>
                   <a href="detail_index.php?p=atasan&act=edit&id=<?= $row['id'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
                   <a href="detail_index.php?p=atasan&delete&id=<?= $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data Atasan?')"><i class="glyphicon glyphicon-trash"></i></a>

@@ -11,8 +11,9 @@
     $nip = $_POST['nip'];
     $nama_atasan = $_POST['nama_atasan'];
     $jabatan = $_POST['jabatan'];
+    $bidang = $_POST['bidang'];
 
-    $sql = "update atasan set nip='$nip', nama_atasan='$nama_atasan', jabatan='$jabatan' where id='$id'";
+    $sql = "update atasan set nip='$nip', nama_atasan='$nama_atasan', jabatan='$jabatan', jabatan='$jabatan' where id='$id'";
     $query = mysqli_query($con, $sql);
     if ($query) {
       echo "<script>alert('Data Atasan Berhasil Diubah!');window.location.href='detail_index.php?p=atasan'</script>";
@@ -45,7 +46,21 @@
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Jabatan</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Jabatan" name="jabatan" required value="<?= $data['jabatan'] ?>">
+              <select name="jabatan" class="form-control custom-select">
+                <option disabled>-- Pilih Jabatan --</option>
+                <option value="Kepala Bidang" <?= ($data['jabatan']=='Kepala Bidang')?'selected':'' ?>>Kepala Bidang</option>
+                <option value="Kepala Seksi" <?= ($data['jabatan']=='Kepala Seksi')?'selected':'' ?>>Kepala Seksi</option>
+                <option value="Staff" <?= ($data['jabatan']=='Staff')?'selected':'' ?>>Staff</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Bidang</label>
+              <select name="bidang" class="form-control custom-select">
+                <option disabled>-- Pilih Bidang --</option>
+                <option value="Divisi Sistem Informasi" <?= ($data['level']=='Divisi Sistem Informasi')?'selected':'' ?>>Divisi Sistem Informasi</option>
+                <option value="Divisi Pemasaran" <?= ($data['level']=='Divisi Pemasaran')?'selected':'' ?>>Divisi Pemasaran</option>
+                <option value="Divisi Sumber Daya Manusia" <?= ($data['level']=='Divisi Sumber Daya Manusia')?'selected':'' ?>>Divisi Sumber Daya Manusia</option>
+              </select>
             </div>
         
           </div>
