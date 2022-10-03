@@ -356,6 +356,26 @@
               }
               break;
 
+              case 'atasan':
+                if ($action == "create") {
+                  include 'page/atasan/create.php';
+                } else if ($action == "edit") {
+                  include 'page/atasan/edit.php';
+                } else {
+                  include 'page/atasan/index.php';
+                }
+                break;
+
+                case 'pegawai':
+                  if ($action == "create") {
+                    include 'page/atasan/create.php';
+                  } else if ($action == "edit") {
+                    include 'page/atasan/edit.php';
+                  } else {
+                    include 'page/atasan/index.php';
+                  }
+                  break;
+  
             case 'criteria':
               if ($action == "create") {
                 include 'page/kriteria/create.php';

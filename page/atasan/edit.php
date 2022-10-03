@@ -9,11 +9,10 @@
   if (isset($_POST['simpan'])) {
 
     $nip = $_POST['nip'];
-    $nama = $_POST['nama_atasan'];
+    $nama_atasan = $_POST['nama_atasan'];
     $jabatan = $_POST['jabatan'];
-    // $peran = $_POST['peran'];
 
-    $sql = "update atasan set nip='$nip', nama='$nama', jabatan='$jabatan' where id='$id'";
+    $sql = "update atasan set nip='$nip', nama_atasan='$nama_atasan', jabatan='$jabatan' where id='$id'";
     $query = mysqli_query($con, $sql);
     if ($query) {
       echo "<script>alert('Data Atasan Berhasil Diubah!');window.location.href='index.php?p=atasan'</script>";
