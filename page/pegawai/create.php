@@ -1,11 +1,10 @@
 <?php 
-
 	if (isset($_POST['simpan'])) {
 
     $nama_pegawai = $_POST['nama_pegawai'];
     $jabatan = $_POST['jabatan'];
     $bidang = $_POST['bidang'];
-    $atasan = $_POST['atasan'];
+    $id_atasan = $_POST['id_atasan'];
 
     $sql = "insert into pegawai values(null, '$nama_pegawai', '$jabatan', '$bidang', '$id_atasan')";
 		$query = mysqli_query($con, $sql);
@@ -15,8 +14,7 @@
 			echo "Error : " . mysqli_error($con);
 		}
 	}
-
- ?>
+?>
 
 <div class="row">
     <!-- left column -->
