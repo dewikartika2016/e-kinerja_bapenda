@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Okt 2022 pada 10.34
+-- Waktu pembuatan: 05 Okt 2022 pada 06.56
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.10
 
@@ -40,7 +40,8 @@ CREATE TABLE `atasan` (
 --
 
 INSERT INTO `atasan` (`id_atasan`, `nip`, `nama_atasan`, `jabatan`, `bidang`) VALUES
-(1, '18278478364', 'jahdgfy', 'Staff', 'Divisi Pemasaran');
+(1, '18278478364', 'jahdgfy', 'Staff', 'Divisi Pemasaran'),
+(2, '13762836', 'ahhduerd', 'Kepala Bidang', 'Divisi Sumber Daya Manusia');
 
 -- --------------------------------------------------------
 
@@ -64,7 +65,7 @@ CREATE TABLE `kegiatan` (
 
 CREATE TABLE `kinerja` (
   `id_kinerja` int(11) NOT NULL,
-  `nama_pegawai` int(11) NOT NULL,
+  `id_pegawai` int(11) NOT NULL,
   `id_kegiatan` int(11) NOT NULL,
   `waktu` time NOT NULL,
   `waktu_selesai` time NOT NULL
@@ -83,6 +84,15 @@ CREATE TABLE `pegawai` (
   `bidang` varchar(125) NOT NULL,
   `id_atasan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pegawai`
+--
+
+INSERT INTO `pegawai` (`id_pegawai`, `nama_pegawai`, `jabatan`, `bidang`, `id_atasan`) VALUES
+(3, 'lwlkejfir', 'Kepala Seksi', 'Divisi Sumber Daya Manusia', 2),
+(5, 'jkfujkfwe', 'Staff', 'Divisi Sumber Daya Manusia', 1),
+(6, 'ajukdhuef', 'Staff', 'Divisi Pemasaran', 2);
 
 -- --------------------------------------------------------
 
@@ -116,8 +126,7 @@ INSERT INTO `users` (`id_user`, `nama`, `username`, `password`, `email`, `no_tel
 -- Indeks untuk tabel `atasan`
 --
 ALTER TABLE `atasan`
-  ADD PRIMARY KEY (`id_atasan`),
-  ADD KEY `nip` (`nip`);
+  ADD PRIMARY KEY (`id_atasan`);
 
 --
 -- Indeks untuk tabel `kegiatan`
@@ -132,7 +141,7 @@ ALTER TABLE `kegiatan`
 ALTER TABLE `kinerja`
   ADD PRIMARY KEY (`id_kinerja`),
   ADD KEY `uraian_kegiatan` (`id_kegiatan`),
-  ADD KEY `nama_pegawai` (`nama_pegawai`);
+  ADD KEY `id_pegawai` (`id_pegawai`);
 
 --
 -- Indeks untuk tabel `pegawai`
@@ -156,7 +165,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `atasan`
 --
 ALTER TABLE `atasan`
-  MODIFY `id_atasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_atasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `kegiatan`
@@ -174,7 +183,7 @@ ALTER TABLE `kinerja`
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
@@ -196,7 +205,7 @@ ALTER TABLE `kegiatan`
 -- Ketidakleluasaan untuk tabel `kinerja`
 --
 ALTER TABLE `kinerja`
-  ADD CONSTRAINT `kinerja_ibfk_1` FOREIGN KEY (`nama_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `kinerja_ibfk_1` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `kinerja_ibfk_2` FOREIGN KEY (`id_kegiatan`) REFERENCES `kegiatan` (`id_kegiatan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
