@@ -33,7 +33,8 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Form User</h3>
+          <h3 class="box-title">Form User</h3> 
+          <span class="pull-right"><a class="btn btn-danger" href="detail_index.php?p=user" role="button"><span class="fa fa-arrow-circle-o-left"></span> Kembali</a></span>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -72,6 +73,7 @@
           </div>
           <!-- /.box-body -->
           <div class="box-footer">
+            <!-- <a class="btn btn-danger" href="detail_index.php?p=user" role="button">Kembali</a> -->
             <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
           </div>
         </form>

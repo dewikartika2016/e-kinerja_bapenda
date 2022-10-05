@@ -1,8 +1,3 @@
-<?php
-  $pegawai = mysqli_query($con,"SELECT * FROM pegawai");
-  $atasan = mysqli_query($con,"SELECT * FROM atasan");
-?>
-
 <?php 
   if (isset($_GET['delete'])) {
     $id_pegawai = $_GET['id_pegawai'];
@@ -40,7 +35,7 @@
             	<?php 
 
                 $no = 0;
-            		$sql = "select * from pegawai join atasan on pegawai.id_atasan=atasan.id_atasan order by id_pegawai";
+            		$sql = "select * from pegawai join atasan on pegawai.id_atasan=atasan.id_atasan order by pegawai.id_pegawai";
                 // $sql = "select * from pegawai";
             		$query = mysqli_query($con, $sql);
             		while ($row = mysqli_fetch_assoc($query)):

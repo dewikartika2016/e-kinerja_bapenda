@@ -134,7 +134,7 @@
 
               <!-- <a class="dropdown-item" href="#" style="margin: 10px;font-size: 20px">Identitas</a>
               <br> -->
-              <a class="dropdown-item pull-right" href="?logout" style="color: red;margin: 10px;font-size: 20px"><i class="fa fa-circle-o text-red"></i> Logout</a>
+              <a class="dropdown-item pull-right" href="?logout" style="color: red;margin: 10px;font-size: 20px"><i class="fa fa-sign-out text-red"></i> Logout</a>
               
             </div>
           </li>
@@ -159,7 +159,7 @@
         <?php if (@$_SESSION['logged'] == 1): ?>
           <li class="treeview <?= (@$_GET['p']=='user')?'active':'' ?>">
             <a href="?p=user">
-              <i class="fa fa-user"></i> <span>Kelola Data User</span>
+              <i class="fa fa-users"></i> <span>Kelola Data User</span>
             </a>
           </li>
           <li class="treeview <?= (@$_GET['p']=='atasan')?'active':'' ?>">
@@ -172,75 +172,6 @@
               <i class="fa fa-user"></i> <span>Kelola Data Pegawai</span>
             </a>
           </li>
-          
-          <!-- <li class="treeview <?= (@$_GET['p']=='karyawan')?'active':'' ?>">
-            <a href="#">
-              <i class="fa fa-user-secret"></i> <span>Karyawan</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="?p=karyawan&act=create"><i class="fa fa-circle-o"></i> Tambah data Karyawan </a></li>
-              <li><a href="?p=karyawan"><i class="fa fa-circle-o"></i> Data Karyawan</a></li>
-            </ul>
-          </li>
-          <li class="treeview <?= (@$_GET['p']=='jabatan')?'active':'' ?>">
-            <a href="#">
-              <i class="fa fa-briefcase"></i> <span>Jabatan</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="?p=jabatan&act=create"><i class="fa fa-circle-o"></i> Tambah data Jabatan </a></li>
-              <li><a href="?p=jabatan"><i class="fa fa-circle-o"></i> Data Jabatan</a></li>
-            </ul>
-          </li>
-          <li class="treeview <?= (@$_GET['p']=='periode')?'active':'' ?>">
-            <a href="#">
-              <i class="fa fa-clock-o"></i> <span>Periode Penilaian</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="?p=periode&act=create"><i class="fa fa-circle-o"></i> Tambah data periode </a></li>
-              <li><a href="?p=periode"><i class="fa fa-circle-o"></i> Data periode</a></li>
-            </ul>
-          </li>
-          <li class="treeview <?= (@$_GET['p']=='criteria')?'active':'' ?>">
-            <a href="#">
-              <i class="fa fa-list"></i> <span>Kriteria</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="?p=criteria&act=create"><i class="fa fa-circle-o"></i> Buat Kriteria </a></li>
-              <li><a href="?p=criteria"><i class="fa fa-circle-o"></i> Data Kriteria</a></li>
-            </ul>
-          </li>
-          <li class="<?= (@$_GET['p']=='bobot')?'active':'' ?>">
-            <a href="?p=bobot">
-              <i class="fa fa-th"></i> <span>Bobot kriteria</span>
-            </a>
-          </li> -->
-          <!-- <li class="<?= (@$_GET['p']=='tsukamoto')?'active':'' ?>">
-            <a href="?p=fuzzy">
-              <i class="fa fa-calculator"></i> <span>Hitung Fuzzy</span>
-            </a>
-          </li> -->
-          <!-- <li class="<?= (@$_GET['p']=='rank')?'active':'' ?>">
-            <a href="?p=rank">
-              <i class="fa fa-trophy"></i> <span>Ranking</span>
-            </a>
-          </li> -->
-          <!-- <li class="<?= (@$_GET['p']=='report')?'active':'' ?>">
-            <a href="?p=report">
-              <i class="fa fa-file"></i> <span>Laporan</span>
-            </a>
-          </li> -->
         <?php endif; ?>
 
         <?php if (@$_SESSION['logged'] == 2): ?>
@@ -314,7 +245,7 @@
         
         <?php if (@$_SESSION['logged'] == true): ?>
           <li class="header">OTHER</li>
-          <li><a href="?logout"><i class="fa fa-circle-o text-red"></i> <span>Logout</span></a></li>
+          <li><a href="?logout"><i class="fa fa-sign-out text-red"></i> <span>Logout</span></a></li>
         <?php endif; ?>
       </ul>
     </section>
