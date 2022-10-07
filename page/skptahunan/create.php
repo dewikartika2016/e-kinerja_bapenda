@@ -37,31 +37,65 @@
         <!-- form start -->
         <form role="form" method="post">
           <div class="box-body">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Tahun</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan NIP" name="nip" required>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Nama Atasan</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama" name="nama_atasan" required>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Jabatan</label>
-              <select name="jabatan" class="form-control">
-                <option selected disabled>-- Pilih Jabatan --</option>
-                <option value="Kepala Bidang">Kepala Bidang</option>
-                <option value="Kepala Seksi">Kepala Seksi</option>
-                <option value="Staff">Staff</option>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Tahun</label>
+              <select name="tahun" class="form-control">
+                <option selected disabled>-- Pilih Tahun --</option>
+                <?php
+                  for($i=date('Y'); $i>=date('Y')-32; $i-=1){
+                  echo"<option value='$i'> $i </option>";
+                  }
+                  ?>
               </select>
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Bidang</label>
-              <select name="bidang" class="form-control">
-                <option selected disabled>-- Pilih Bidang --</option>
-                <option value="Divisi Sistem Informasi">Divisi Sistem Informasi</option>
-                <option value="Divisi Pemasaran">Divisi Pemasaran</option>
-                <option value="Divisi Sumber Daya Manusia">Divisi Sumber Daya Manusia</option>
+              <label for="exampleInputEmail1">Kegiatan Tahunan</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Kegiatan Tahunan" name="kegiatan_tahunan" required>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Target Kuantitas</label>
+              <div class="row">
+              <div class="col-6 col-sm-6">
+              <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Masukan Target Kuantitas" name="target_kuantitas" required>
+              </div>
+              <div class="col-6 col-sm-6">
+              <select name="satuan_kuantitas" class="form-control">
+                <option selected disabled>-- Pilih Satuan Kuantitas --</option>
+                <option value="Divisi Sistem Informasi">Dokumen</option>
+                <option value="Divisi Pemasaran">Surat</option>
+                <option value="Divisi Sumber Daya Manusia">Majalah</option>
               </select>
+              </div></div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Target Waktu</label>
+              <div class="row">
+              <div class="col-6 col-sm-6">
+              <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Masukan Target Waktu" name="target_waktu" required> 
+              </div>
+              <div class="col justify-content-center">
+                </br>
+              Bulan
+            </div>
+              </div>
+            </div>
+            <div class="form-group">
+            <div class="row">  
+              <div class="col-6 col-sm-6">
+              <label for="exampleInputEmail1">Dari Tanggal/Bulan/Tahun</label>
+              </div>
+              <div class="col-6 col-sm-6">
+              <label for="exampleInputEmail1">Sampai Tanggal/Bulan/Tahun</label>
+              </div>
+            </div>
+            <div class="row">  
+              <div class="col-6 col-sm-6">
+              <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Masukan Kegiatan Tahunan" name="periode_awal" required>
+              </div>
+              <div class="col-6 col-sm-6">
+              <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Masukan Kegiatan Tahunan" name="periode_akhir" required>
+              </div>
+            </div>
             </div>
           </div>
           <!-- /.box-body -->
