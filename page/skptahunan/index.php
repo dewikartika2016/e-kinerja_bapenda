@@ -1,7 +1,7 @@
 <?php 
   if (isset($_GET['delete'])) {
-    $id_skptahunan = $_GET['id_skptahunan'];
-    $sql = "delete from skptahunan where id_skptahunan='$id_skptahunan'";
+    $id_skp_tahunan = $_GET['id_skp_tahunan'];
+    $sql = "delete from skp_tahunan where id_skp_tahunan='$id_skp_tahunan'";
     $query = mysqli_query($con, $sql);
     if ($query) {
       echo "<script>alert('Data SKP Tahunan Berhasil Dihapus!');window.location.href='detail_index.php?p=skptahunan'</script>";
@@ -39,7 +39,7 @@
             	<?php 
 
                 $no = 0;
-            		$sql = "select * from skptahunan";
+            		$sql = "select * from skp_tahunan";
             		$query = mysqli_query($con, $sql);
             		while ($row = mysqli_fetch_assoc($query)):
                   $no++;
@@ -53,10 +53,10 @@
               <td><?= $row['target_waktu'] ?></td>
               <td><?= date("d M Y", strtotime($row['periode_awal'])) ?> - <?= date("d M Y", strtotime($row['periode_akhir'])) ?></td>
               <td><?= $row['biaya'] ?></td>
-              <td><?= $row['status'] ?></td>
+              <td><?= $row['status_skp_tahunan'] ?></td>
                 <td>
-                  <a href="detail_index.php?p=skptahunan&act=edit&id_skptahunan=<?= $row['id_skptahunan'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
-                  <a href="detail_index.php?p=skptahunan&delete&id_skptahunan=<?= $row['id_skptahunan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data Atasan?')"><i class="glyphicon glyphicon-trash"></i></a>
+                  <a href="detail_index.php?p=skptahunan&act=edit&id_skp_tahunan=<?= $row['id_skp_tahunan'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                  <a href="detail_index.php?p=skptahunan&delete&id_skp_tahunan=<?= $row['id_skp_tahunan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data Atasan?')"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             	 </tr>
             	<?php endwhile; ?>

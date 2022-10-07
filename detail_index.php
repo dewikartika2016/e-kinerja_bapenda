@@ -274,6 +274,16 @@
               }
               break;
 
+              case 'skpbulanan':
+                if ($action == "create") {
+                  include 'page/skpbulanan/create.php';
+                } else if ($action == "edit") {
+                  include 'page/skpbulanan/edit.php';
+                } else {
+                  include 'page/skpbulanan/index.php';
+                }
+                break;
+
             case 'create_skor':
               if ($action == "edit") {
                 include 'page/pemberiannilai/edit.php';
