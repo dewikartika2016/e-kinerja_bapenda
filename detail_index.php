@@ -198,22 +198,20 @@
         <?php endif; ?>
 
         <?php if (@$_SESSION['logged'] == 3): ?>
-          <li class="<?= (@$_GET['p']=='me
-          nilai')?'active':'' ?>">
-            <a href="?p=DataKaryawan">
-              <i class="fa fa-list"></i> <span>Data Karyawan</span>
-            </a>
-          </li>
-          <li class="<?= (@$_GET['p']=='KonfirmasiLaporan')?'active':'' ?>">
-            <a href="?p=KonfirmasiLaporan">
-              <i class="fa fa-list"></i> <span>Konfirmasi Laporan</span>
-            </a>
           <!-- </li>
           <li class="<?= (@$_GET['p']=='LaporanHarian')?'active':'' ?>">
             <a href="?p=LaporanHarian">
               <i class="fa fa-list"></i> <span>Laporan Kerja Harian</span>
             </a>
           </li> -->
+          <li class="<?= (@$_GET['p']=='skptahunan_bawahan')?'active':'' ?>">
+            <a href="?p=skptahunan_bawahan">
+              <i class="fa fa-list"></i> <span>SKP Tahunan Bawahan</span>
+            </a>
+            <li class="<?= (@$_GET['p']=='skpbulanan_bawahan')?'active':'' ?>">
+            <a href="?p=skpbulanan_bawahan">
+              <i class="fa fa-list"></i> <span>SKP Bulanan Bawahan</span>
+            </a>
         <?php endif; ?>
         
         <?php if (@$_SESSION['logged'] == true): ?>
@@ -315,6 +313,26 @@
                 include 'page/jabatan/index.php';
               }
               break;
+
+              case 'skptahunan_bawahan':
+                if ($action == "create") {
+                  include 'page/skptahunan_bawahan/create.php';
+                }else if ($action == "edit") {
+                  include 'page/skptahunan_bawahan/edit.php';
+                }else{
+                  include 'page/skptahunan_bawahan/index.php';
+                }
+                break;
+
+                case 'skpbulanan_bawahan':
+                  if ($action == "create") {
+                    include 'page/skpbulanan__bawahan/create.php';
+                  }else if ($action == "edit") {
+                    include 'page/skpbulanan__bawahan/edit.php';
+                  }else{
+                    include 'page/skpbulanan__bawahan/index.php';
+                  }
+                  break;
 
             case 'bobot':
               include 'page/bobot/index.php';
