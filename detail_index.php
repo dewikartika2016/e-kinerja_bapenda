@@ -84,7 +84,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">BPD</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">Laporan Harian</span>
+      <span class="logo-lg">Kinerja Pegawai</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -175,35 +175,31 @@
         <?php endif; ?>
 
         <?php if (@$_SESSION['logged'] == 2): ?>
-          <!-- <li class="<?= (@$_GET['p']=='tsukamoto')?'active':'' ?>">
-            <a href="?p=fuzzy">
-              <i class="fa fa-calculator"></i> <span>Hitung Fuzzy</span>
-            </a>
-          </li> -->
-          <li class="<?= (@$_GET['p']=='SKPTahunan')?'active':'' ?>">
-            <a href="?p=SKPTahunan">
+          <li class="<?= (@$_GET['p']=='skptahunan')?'active':'' ?>">
+            <a href="?p=skptahunan">
               <i class="fa fa-list"></i> <span>SKP Tahunan</span>
             </a>
           </li>
-          <li class="<?= (@$_GET['p']=='SKPBulanan')?'active':'' ?>">
-            <a href="?p=SKPBulanan">
+          <li class="<?= (@$_GET['p']=='skpbulanan')?'active':'' ?>">
+            <a href="?p=skpbulanan">
               <i class="fa fa-list"></i> <span>SKP Bulanan</span>
             </a>
           </li>
-          <li class="<?= (@$_GET['p']=='LaporanHarian')?'active':'' ?>">
-            <a href="?p=LaporanHarian">
+          <li class="<?= (@$_GET['p']=='laporan')?'active':'' ?>">
+            <a href="?p=laporan">
               <i class="fa fa-list"></i> <span>Laporan Kerja Harian</span>
+            </a>
+          </li>
+          <li class="<?= (@$_GET['p']=='profile')?'active':'' ?>">
+            <a href="?p=profile">
+              <i class="fa fa-list"></i> <span>Edit Profile</span>
             </a>
           </li>
         <?php endif; ?>
 
         <?php if (@$_SESSION['logged'] == 3): ?>
-          <!-- <li class="<?= (@$_GET['p']=='tsukamoto')?'active':'' ?>">
-            <a href="?p=fuzzy">
-              <i class="fa fa-calculator"></i> <span>Hitung Fuzzy</span>
-            </a>
-          </li> -->
-          <li class="<?= (@$_GET['p']=='DataKaryawan')?'active':'' ?>">
+          <li class="<?= (@$_GET['p']=='me
+          nilai')?'active':'' ?>">
             <a href="?p=DataKaryawan">
               <i class="fa fa-list"></i> <span>Data Karyawan</span>
             </a>
@@ -211,29 +207,6 @@
           <li class="<?= (@$_GET['p']=='KonfirmasiLaporan')?'active':'' ?>">
             <a href="?p=KonfirmasiLaporan">
               <i class="fa fa-list"></i> <span>Konfirmasi Laporan</span>
-            </a>
-          <!-- </li>
-          <li class="<?= (@$_GET['p']=='LaporanHarian')?'active':'' ?>">
-            <a href="?p=LaporanHarian">
-              <i class="fa fa-list"></i> <span>Laporan Kerja Harian</span>
-            </a>
-          </li> -->
-        <?php endif; ?>
-
-        <?php if (@$_SESSION['logged'] == 4): ?>
-          <!-- <li class="<?= (@$_GET['p']=='tsukamoto')?'active':'' ?>">
-            <a href="?p=fuzzy">
-              <i class="fa fa-calculator"></i> <span>Hitung Fuzzy</span>
-            </a>
-          </li> -->
-          <li class="<?= (@$_GET['p']=='DataKaryawan')?'active':'' ?>">
-            <a href="?p=DataKaryawan">
-              <i class="fa fa-list"></i> <span>Data Karyawan</span>
-            </a>
-          </li>
-          <li class="<?= (@$_GET['p']=='Penilaian')?'active':'' ?>">
-            <a href="?p=Penilaian">
-              <i class="fa fa-list"></i> <span>Penilaian Kinerja</span>
             </a>
           <!-- </li>
           <li class="<?= (@$_GET['p']=='LaporanHarian')?'active':'' ?>">
@@ -254,18 +227,6 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <!-- <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section> -->
-
     <!-- Main content -->
     <section class="content">
         
@@ -305,15 +266,13 @@
                   }
                   break;
   
-            case 'criteria':
+            case 'skptahunan':
               if ($action == "create") {
-                include 'page/kriteria/create.php';
+                include 'page/skptahunan/create.php';
               } else if ($action == "edit") {
-                include 'page/kriteria/edit.php';
-              } else if ($action == "show") {
-                include 'page/kriteria/show.php';
+                include 'page/skptahunan/edit.php';
               } else {
-                include 'page/kriteria/index.php';
+                include 'page/skptahunan/index.php';
               }
               break;
 
