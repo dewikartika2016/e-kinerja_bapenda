@@ -2,16 +2,21 @@
 
 	if (isset($_POST['simpan'])) {
 
-        $nip = $_POST['nip'];
-        $nama_atasan = $_POST['nama_atasan'];
-        $jabatan = $_POST['jabatan'];
-        $bidang = $_POST['bidang'];
+        $tahun = $_POST['tahun'];
+        $kegiatan_tahunan = $_POST['kegiatan_tahunan'];
+        $target_kuantitas = $_POST['target_kuantitas'];
+        $satuan_kuantitas = $_POST['satuan_kuantitas'];
+        $target_kualitas = $_POST['target_kualitas'];
+        $target_waktu = $_POST['target_waktu'];
+        $periode_awal = $_POST['periode_awal'];
+        $periode_akhir = $_POST['periode_akhir'];
+        $biaya = $_POST['biaya'];
     
 
-		$sql = "insert into atasan values(null, '$nip', '$nama_atasan', '$jabatan', '$bidang')";
+		$sql = "insert into skptahunan values(null, '$tahun', '$kegiatan_tahunan', '$target_kuantitas', '$satuan_kuantitas', '$target_kualitas', '$target_waktu', '$periode_awal', '$periode_akhir', '$biaya', '')";
 		$query = mysqli_query($con, $sql);
 		if ($query) {
-			echo "<script>alert('Data berhasil ditambahkan!');window.location.href='detail_index.php?p=atasan'</script>";
+			echo "<script>alert('Data berhasil ditambahkan!');window.location.href='detail_index.php?p=skptahunan'</script>";
 		} else {
 			echo "Error : " . mysqli_error($con);
 		}
@@ -25,7 +30,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Form Data Atasan</h3> 
+          <h3 class="box-title">Form Data SKP Tahunan</h3> 
           <span class="pull-right"><a class="btn btn-danger" href="detail_index.php?p=atasan" role="button"><span class="fa fa-arrow-circle-o-left"></span> Kembali</a></span>
         </div>
         <!-- /.box-header -->
@@ -33,7 +38,7 @@
         <form role="form" method="post">
           <div class="box-body">
             <div class="form-group">
-              <label for="exampleInputEmail1">NIP</label>
+              <label for="exampleInputEmail1">Tahun</label>
               <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan NIP" name="nip" required>
             </div>
             <div class="form-group">

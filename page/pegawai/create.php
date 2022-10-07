@@ -2,11 +2,11 @@
 	if (isset($_POST['simpan'])) {
 
     $nama_pegawai = $_POST['nama_pegawai'];
-    $jabatan = $_POST['jabatan'];
-    $bidang = $_POST['bidang'];
+    $id_unit_kerja = $_POST['id_unit_kerja'];
+    $id_jabatan = $_POST['id_jabatan'];
     $id_atasan = $_POST['id_atasan'];
 
-    $sql = "insert into pegawai values(null, '$nama_pegawai', '$jabatan', '$bidang', '$id_atasan')";
+    $sql = "insert into pegawai values(null, '$nama_pegawai', '$id_unit_kerja', '$id_jabatan', '$id_atasan')";
 		$query = mysqli_query($con, $sql);
 		if ($query) {
 			echo "<script>alert('Data berhasil ditambahkan!');window.location.href='detail_index.php?p=pegawai'</script>";
@@ -34,21 +34,33 @@
               <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Nama Pegawai" name="nama_pegawai" required>
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Jabatan</label>
-              <select name="jabatan" class="form-control">
-                <option selected disabled>-- Pilih Jabatan --</option>
-                <option value="Kepala Bidang">Kepala Bidang</option>
-                <option value="Kepala Seksi">Kepala Seksi</option>
-                <option value="Staff">Staff</option>
+              <label for="exampleInputEmail1">Unit Kerja</label>
+              <select name="id_unit_kerja" class="form-control">
+                <option selected disabled>-- Pilih Unit Kerja --</option>
+                <?php
+                  $unit_kerja = mysqli_query($con,"SELECT * FROM unit_kerja");
+						      while ($data=mysqli_fetch_array($unit_kerja)) {
+				      	?>
+                    <option value="<?php echo $data['id_unit_kerja']; ?>">
+                    <?php echo $data['unit_kerja']; ?> </option>
+                <?php
+                    }
+                  ?>
               </select>
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Bidang</label>
-              <select name="bidang" class="form-control">
-                <option selected disabled>-- Pilih Bidang --</option>
-                <option value="Divisi Sistem Informasi">Divisi Sistem Informasi</option>
-                <option value="Divisi Pemasaran">Divisi Pemasaran</option>
-                <option value="Divisi Sumber Daya Manusia">Divisi Sumber Daya Manusia</option>
+              <label for="exampleInputEmail1">Jabatan</label>
+              <select name="id_jabatan" class="form-control">
+                <option selected disabled>-- Pilih Jabatan --</option>
+                <?php
+                  $jabatan = mysqli_query($con,"SELECT * FROM jabatan");
+						      while ($data=mysqli_fetch_array($jabatan)) {
+				      	?>
+                    <option value="<?php echo $data['id_jabatan']; ?>">
+                    <?php echo $data['jabatan']; ?> </option>
+                <?php
+                    }
+                  ?>
               </select>
             </div>
             <div class="form-group">

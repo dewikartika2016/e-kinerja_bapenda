@@ -35,7 +35,7 @@
             	<?php 
 
                 $no = 0;
-            		$sql = "select * from atasan";
+            		$sql = "select * from atasan join unit_kerja on atasan.id_unit_kerja=unit_kerja.id_unit_kerja join jabatan on atasan.id_jabatan=jabatan.id_jabatan";
             		$query = mysqli_query($con, $sql);
             		while ($row = mysqli_fetch_assoc($query)):
                   $no++;
@@ -44,8 +44,8 @@
             	 	<td><?= $no ?></td>
             	 	<td><?= $row['nip'] ?></td>
                 <td><?= $row['nama_atasan'] ?></td>
+                <td><?= $row['unit_kerja'] ?></td>
                 <td><?= $row['jabatan'] ?></td>
-                <td><?= $row['bidang'] ?></td>
                 <td>
                   <a href="detail_index.php?p=atasan&act=edit&id_atasan=<?= $row['id_atasan'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
                   <a href="detail_index.php?p=atasan&delete&id_atasan=<?= $row['id_atasan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data Atasan?')"><i class="glyphicon glyphicon-trash"></i></a>

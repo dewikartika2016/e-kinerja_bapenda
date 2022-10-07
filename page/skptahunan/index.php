@@ -24,12 +24,14 @@
             <thead>
             <tr>
               <th>No</th>
-              <th>Periode SKP</th>
+              <th>Tahun</th>
               <th>Kegiatan Tahunan</th>
               <th>Target Kuantitas</th>
               <th>Target Kualitas</th>
               <th>Target Waktu</th>
+              <th>Periode Target</th>
               <th>Biaya</th>
+              <th>Status</th>
               <th>Aksi</th>
             </tr>
             </thead>
@@ -44,12 +46,14 @@
             	 ?>
             	<tr>
             	<td><?= $no ?></td>
-            	<td><?= date("d M Y", strtotime($row['periode_awal'])) ?> - <?= date("d M Y", strtotime($row['periode_akhir'])) ?></td>
-                <td><?= $row['kegiatan_tahunan'] ?></td>
-                <td><?= $row['target_kuantitas'] ?> <?= $row['satuan_kuantitas'] ?></td>
-                <td><?= $row['target_kualitas'] ?></td>
-                <td><?= $row['target_waktu'] ?></td>
-                <td><?= $row['biaya'] ?></td>
+            	<td><?= $row['tahun'] ?></td>
+              <td><?= $row['kegiatan_tahunan'] ?></td>
+              <td><?= $row['target_kuantitas'] ?> <?= $row['satuan_kuantitas'] ?></td>
+              <td><?= $row['target_kualitas'] ?></td>
+              <td><?= $row['target_waktu'] ?></td>
+              <td><?= date("d M Y", strtotime($row['periode_awal'])) ?> - <?= date("d M Y", strtotime($row['periode_akhir'])) ?></td>
+              <td><?= $row['biaya'] ?></td>
+              <td><?= $row['status'] ?></td>
                 <td>
                   <a href="detail_index.php?p=skptahunan&act=edit&id_skptahunan=<?= $row['id_skptahunan'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
                   <a href="detail_index.php?p=skptahunan&delete&id_skptahunan=<?= $row['id_skptahunan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data Atasan?')"><i class="glyphicon glyphicon-trash"></i></a>
