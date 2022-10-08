@@ -185,9 +185,9 @@
               <i class="fa fa-list"></i> <span>SKP Bulanan</span>
             </a>
           </li>
-          <li class="<?= (@$_GET['p']=='laporan')?'active':'' ?>">
-            <a href="?p=laporan">
-              <i class="fa fa-list"></i> <span>Laporan Kerja Harian</span>
+          <li class="<?= (@$_GET['p']=='laporanhariankinerja')?'active':'' ?>">
+            <a href="?p=laporanhariankinerja">
+              <i class="fa fa-list"></i> <span>Laporan Harian Kinerja SKP</span>
             </a>
           </li>
           <li class="<?= (@$_GET['p']=='profile')?'active':'' ?>">
@@ -198,12 +198,6 @@
         <?php endif; ?>
 
         <?php if (@$_SESSION['logged'] == 3): ?>
-          <!-- </li>
-          <li class="<?= (@$_GET['p']=='LaporanHarian')?'active':'' ?>">
-            <a href="?p=LaporanHarian">
-              <i class="fa fa-list"></i> <span>Laporan Kerja Harian</span>
-            </a>
-          </li> -->
           <li class="<?= (@$_GET['p']=='skptahunan_bawahan')?'active':'' ?>">
             <a href="?p=skptahunan_bawahan">
               <i class="fa fa-list"></i> <span>SKP Tahunan Bawahan</span>
@@ -264,13 +258,13 @@
                   }
                   break;
   
-            case 'skptahunan':
+            case 'laporanhariankinerja':
               if ($action == "create") {
-                include 'page/skptahunan/create.php';
+                include 'page/laporanhariankinerja/create.php';
               } else if ($action == "edit") {
-                include 'page/skptahunan/edit.php';
+                include 'page/laporanhariankinerja/edit.php';
               } else {
-                include 'page/skptahunan/index.php';
+                include 'page/laporanhariankinerja/index.php';
               }
               break;
 
@@ -283,6 +277,17 @@
                   include 'page/skpbulanan/index.php';
                 }
                 break;
+
+                case 'skptahunan':
+                  if ($action == "create") {
+                    include 'page/skptahunan/create.php';
+                  } else if ($action == "edit") {
+                    include 'page/skptahunan/edit.php';
+                  } else {
+                    include 'page/skptahunan/index.php';
+                  }
+                  break;
+    
 
             case 'create_skor':
               if ($action == "edit") {

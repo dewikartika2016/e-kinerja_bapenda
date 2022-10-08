@@ -50,7 +50,7 @@
               <td><?= $row['kegiatan_tahunan'] ?></td>
               <td><?= $row['target_kuantitas'] ?> <?= $row['satuan_kuantitas'] ?></td>
               <td><?= $row['target_kualitas'] ?></td>
-              <td><?= $row['target_waktu'] ?></td>
+              <td><?= $row['target_waktu'] ?> Bulan</td>
               <td><?= date("d M Y", strtotime($row['periode_awal'])) ?> - <?= date("d M Y", strtotime($row['periode_akhir'])) ?></td>
               <td><?= $row['biaya'] ?></td>
               <td><?= $row['status_skp_tahunan'] ?></td>

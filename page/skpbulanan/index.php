@@ -28,6 +28,7 @@
               <th>SKP Tahunan</th>
               <th>Kegiatan Bulanan</th>
               <th>Target Kuantitas</th>
+              <th>Target Kualitas</th>
               <th>Target Waktu</th>
               <th>Biaya</th>
               <th>Status</th>
