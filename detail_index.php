@@ -175,24 +175,38 @@
         <?php endif; ?>
 
         <?php if (@$_SESSION['logged'] == 2): ?>
-          <li class="<?= (@$_GET['p']=='skptahunan')?'active':'' ?>">
-            <a href="?p=skptahunan">
-              <i class="fa fa-list"></i> <span>SKP Tahunan</span>
+          <li class="treeview <?= (@$_GET['p']=='skptahunan')?'active':'' ?>">
+            <a href="#">
+              <i class="fa fa-briefcase"></i> <span>SKP Tahunan</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
             </a>
+            <ul class="treeview-menu">
+              <li><a href="?p=skptahunan"><i class="fa fa-circle-o"></i> Target SKP Tahunan </a></li>
+              <li><a href="?p=skptahunan&act=realisasi"><i class="fa fa-circle-o"></i> Realisasi SKP Tahunan</a></li>
+            </ul>
           </li>
-          <li class="<?= (@$_GET['p']=='skpbulanan')?'active':'' ?>">
-            <a href="?p=skpbulanan">
-              <i class="fa fa-list"></i> <span>SKP Bulanan</span>
+          <li class="treeview <?= (@$_GET['p']=='skpbulanan')?'active':'' ?>">
+            <a href="#">
+              <i class="fa fa-briefcase"></i> <span>SKP Bulanan</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
             </a>
+            <ul class="treeview-menu">
+              <li><a href="?p=skpbulanan"><i class="fa fa-circle-o"></i> Target SKP Bulanan </a></li>
+              <li><a href="?p=skpbulanan&act=realisasi"><i class="fa fa-circle-o"></i> Realisasi SKP Bulanan</a></li>
+            </ul>
           </li>
           <li class="<?= (@$_GET['p']=='laporanhariankinerja')?'active':'' ?>">
             <a href="?p=laporanhariankinerja">
-              <i class="fa fa-list"></i> <span>Laporan Harian Kinerja SKP</span>
+              <i class="fa fa-briefcase"></i> <span>Laporan Harian Kinerja SKP</span>
             </a>
           </li>
           <li class="<?= (@$_GET['p']=='profile')?'active':'' ?>">
             <a href="?p=profile">
-              <i class="fa fa-list"></i> <span>Edit Profile</span>
+              <i class="fa fa-user"></i> <span>Edit Profile</span>
             </a>
           </li>
         <?php endif; ?>
@@ -273,6 +287,8 @@
                   include 'page/skpbulanan/create.php';
                 } else if ($action == "edit") {
                   include 'page/skpbulanan/edit.php';
+                } else if ($action == "realisasi") {
+                  include 'page/skpbulanan/realisasi.php';
                 } else {
                   include 'page/skpbulanan/index.php';
                 }
@@ -283,6 +299,9 @@
                     include 'page/skptahunan/create.php';
                   } else if ($action == "edit") {
                     include 'page/skptahunan/edit.php';
+
+                  } else if ($action == "realisasi") {
+                    include 'page/skptahunan/realisasi.php';
                   } else {
                     include 'page/skptahunan/index.php';
                   }
