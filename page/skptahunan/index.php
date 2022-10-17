@@ -39,7 +39,7 @@
             	<?php 
 
                 $no = 0;
-            		$sql = "select * from skp_tahunan";
+            		$sql = "SELECT * from skp_tahunan order by tahun";
             		$query = mysqli_query($con, $sql);
             		while ($row = mysqli_fetch_assoc($query)):
                   $no++;

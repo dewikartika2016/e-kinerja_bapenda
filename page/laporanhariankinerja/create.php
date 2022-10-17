@@ -6,10 +6,10 @@
         $kegiatan_harian= $_POST['kegiatan_harian'];
         $id_skp_bulanan = $_POST['id_skp_bulanan'];
         $kuantitas = $_POST['kuantitas'];
-        $satuankuantitas = $_POST['satuankuantitas'];
+        $satuan_kuantitas = $_POST['satuan_kuantitas'];
     
 
-		$sql = "insert into laporan_harian values(null, '$tanggal', '$kegiatan_harian', '$id_skp_bulanan', '$kuantitas', '$satuankuantitas', 'Belum Disetujui')";
+		$sql = "insert into laporan_harian values(null, '$tanggal', '$kegiatan_harian', '$id_skp_bulanan', '$kuantitas', '$satuan_kuantitas', 'Belum Disetujui')";
 		$query = mysqli_query($con, $sql);
 		if ($query) {
 			echo "<script>alert('Data berhasil ditambahkan!');window.location.href='detail_index.php?p=laporanhariankinerja'</script>";
@@ -63,7 +63,7 @@
               <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Masukan Kuantitas" name="kuantitas" required>
               </div>
               <div class="col-6 col-sm-6">
-              <select name="satuankuantitas" class="form-control">
+              <select name="satuan_kuantitas" class="form-control">
                 <option selected disabled>-- Pilih Satuan Kuantitas --</option>
                 <option value="Dokumen">Dokumen</option>
                 <option value="Surat">Surat</option>

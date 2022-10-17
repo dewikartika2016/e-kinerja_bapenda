@@ -35,7 +35,7 @@
             	<?php 
 
                 $no = 0;
-            		$sql = "select * from laporan_harian join skp_bulanan on laporan_harian.id_skp_bulanan=skp_bulanan.id_skp_bulanan";
+            		$sql = "SELECT * from laporan_harian join skp_bulanan on laporan_harian.id_skp_bulanan=skp_bulanan.id_skp_bulanan";
             		$query = mysqli_query($con, $sql);
             		while ($row = mysqli_fetch_assoc($query)):
                   $no++;
@@ -45,7 +45,7 @@
             	<td><?= date("d M Y", strtotime($row['tanggal'])) ?></td>
                 <td><?= $row['kegiatan_harian'] ?></td>
                 <td><?= $row['kegiatan_bulanan'] ?></td>
-                <td><?= $row['kuantitas'] ?> <?= $row['satuankuantitas'] ?></td>
+                <td><?= $row['kuantitas'] ?> <?= $row['satuan_kuantitas'] ?></td>
                 <td><?= $row['status_laporan_harian'] ?></td>
                 <td>
                   <a href="detail_index.php?p=laporanhariankinerja&act=edit&id_laporan_harian=<?= $row['id_laporan_harian'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>

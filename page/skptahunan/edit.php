@@ -1,10 +1,9 @@
 <?php 
 
     $id_skp_tahunan = $_GET['id_skp_tahunan'];
-    $sql = "select * from skp_tahunan where id_skp_tahunan='$id_skp_tahunan'";
+    $sql = "SELECT * from skp_tahunan where id_skp_tahunan='$id_skp_tahunan'";
     $query = mysqli_query($con, $sql);
     $data = mysqli_fetch_array($query);
-
 
   if (isset($_POST['simpan'])) {
 
@@ -18,16 +17,35 @@
     $biaya = $_POST['biaya'];
     // $peran = $_POST['peran'];
 
-    $sql = "update skp_tahunan set tahun='$tahun', kegiatan_tahunan='$kegiatan_tahunan', target_kuantitas='$target_kuantitas', satuan_kuantitas='$satuan_kuantitas', target_waktu='$target_waktu', periode_awal='$periode_awal', periode_akhir='$periode_akhir', biaya='$biaya' where id_skp_tahunan='$id_skp_tahunan'";
+    $sql = "UPDATE skp_tahunan SET tahun='$tahun', kegiatan_tahunan='$kegiatan_tahunan', target_kuantitas='$target_kuantitas', satuan_kuantitas='$satuan_kuantitas', target_waktu='$target_waktu', periode_awal='$periode_awal', periode_akhir='$periode_akhir', biaya='$biaya' WHERE id_skp_tahunan='$id_skp_tahunan'";
     $query = mysqli_query($con, $sql);
     if ($query) {
-      echo "<script>alert('Data berhasil diubah!');window.location.href='detail_index.php?p=skp_tahunan'</script>";
+      echo "<script>alert('Data berhasil diubah!');window.location.href='detail_index.php?p=skptahunan'</script>";
     } else {
       echo "Error : " . mysqli_error($con);
     }
   }
-
  ?>
+ 
+<?php
+$id_skp_tahunan = $_GET['id_skp_tahunan'];
+
+$result = mysqli_query($con, "SELECT * from skp_tahunan where id_skp_tahunan='$id_skp_tahunan'") or die (mysqli_error($con));
+while($skp_tahunan = mysqli_fetch_array($result))
+{
+  $tahun = $skp_tahunan['tahun'];
+  $kegiatan_tahunan = $skp_tahunan['kegiatan_tahunan'];
+  $target_kuantitas = $skp_tahunan['target_kuantitas'];
+  $satuan_kuantitas = $skp_tahunan['satuan_kuantitas'];
+  $target_waktu = $skp_tahunan['target_waktu'];
+  $periode_awal = $skp_tahunan['periode_awal'];
+  $periode_akhir = $skp_tahunan['periode_akhir'];
+  $biaya = $skp_tahunan['biaya'];
+}
+	// $atasan = mysqli_query($con,"SELECT * FROM atasan");
+  // $unit_kerja = mysqli_query($con,"SELECT * FROM unit_kerja");
+  // $jabatan = mysqli_query($con,"SELECT * FROM jabatan");
+?>
 
 <div class="row">
     <!-- left column -->
@@ -35,8 +53,8 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Form User</h3> 
-          <span class="pull-right"><a class="btn btn-danger" href="detail_index.php?p=user" role="button"><span class="fa fa-arrow-circle-o-left"></span> Kembali</a></span>
+          <h3 class="box-title">Form Target SKP Tahunan</h3> 
+          <span class="pull-right"><a class="btn btn-danger" href="detail_index.php?p=skp_tahunan" role="button"><span class="fa fa-arrow-circle-o-left"></span> Kembali</a></span>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -45,30 +63,30 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Tahun</label>
               <select name="tahun" class="form-control">
-                <option selected disabled>-- Pilih Tahun --</option>
+                <!-- <option selected value><?php echo $data['tahun']; ?></option> -->
                 <?php
                   for($i=date('Y'); $i>=date('Y')-5; $i-=1){
-                  echo"<option value='$i'> $i </option>";
+                  echo"<option value selected=$i>$i</option>";
                   }
                   ?>
               </select>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Kegiatan Tahunan</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Kegiatan Tahunan" name="kegiatan_tahunan" required value="<?= $data['nama'] ?>>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Kegiatan Tahunan" name="kegiatan_tahunan" required value="<?= $data['kegiatan_tahunan'] ?>">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Target Kuantitas</label>
               <div class="row">
               <div class="col-6 col-sm-6">
-              <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Masukan Target Kuantitas" name="target_kuantitas" required value="<?= $data['nama'] ?>>
+              <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Masukan Target Kuantitas" name="target_kuantitas" required value="<?= $data['target_kuantitas'] ?>">
               </div>
               <div class="col-6 col-sm-6">
               <select name="satuan_kuantitas" class="form-control">
                 <option selected disabled>-- Pilih Satuan Kuantitas --</option>
-                <option value="Dokumen" <?= ($data['level']=='admin')?'selected':'' ?>>Dokumen</option>
-                <option value="Surat" <?= ($data['level']=='admin')?'selected':'' ?>>Surat</option>
-                <option value="Majalah" <?= ($data['level']=='admin')?'selected':'' ?>>Majalah</option>
+                <option value="Dokumen" <?= ($data['satuan_kuantitas']=='Dokumen')?'selected':'' ?>>Dokumen</option>
+                <option value="Surat" <?= ($data['satuan_kuantitas']=='Surat')?'selected':'' ?>>Surat</option>
+                <option value="Majalah" <?= ($data['satuan_kuantitas']=='Majalah')?'selected':'' ?>>Majalah</option>
               </select>
               </div></div>
             </div>
@@ -76,7 +94,7 @@
               <label for="exampleInputEmail1">Target Waktu</label>
               <div class="row">
               <div class="col-6 col-sm-6">
-              <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Masukan Target Waktu" name="target_waktu" required value="<?= $data['nama'] ?>> 
+              <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Masukan Target Waktu" name="target_waktu" required value="<?= $data['target_waktu'] ?>"> 
               </div>
               <div class="col justify-content-center">
                 </br>
@@ -104,7 +122,7 @@
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Biaya</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Biaya" name="biaya" required>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Biaya" name="biaya" required value="<?= $data['biaya'] ?>">
             </div>
           </div>
           <!-- /.box-body -->
