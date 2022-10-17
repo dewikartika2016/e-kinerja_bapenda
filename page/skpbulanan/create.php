@@ -37,13 +37,17 @@
         <form role="form" method="post">
           <div class="box-body">
           <div class="form-group">
-            <label for="exampleInputEmail1">Tahun</label>
+              <label for="exampleInputEmail1">Tahun</label>
               <select name="tahun" class="form-control">
                 <option selected disabled>-- Pilih Tahun --</option>
                 <?php
-                  for($i=date('Y'); $i>=date('Y')-32; $i-=1){
-                  echo"<option value='$i'> $i </option>";
-                  }
+                  $skp_tahunan = mysqli_query($con,"SELECT * FROM skp_tahunan");
+						      while ($data=mysqli_fetch_array($skp_tahunan)) {
+				      	?>
+                    <option value="<?php echo $data['tahun']; ?>">
+                    <?php echo $data['tahun']; ?> ( <?php echo date("d M Y", strtotime($data['periode_awal'])); ?> - <?php echo date("d M Y", strtotime($data['periode_akhir'])); ?> )</option>
+                <?php
+                    }
                   ?>
               </select>
             </div>

@@ -5,12 +5,11 @@
         $tanggal = $_POST['tanggal'];
         $kegiatan_harian= $_POST['kegiatan_harian'];
         $id_skp_bulanan = $_POST['id_skp_bulanan'];
-        $id_skp_tahunan = $_POST['id_skp_tahunan'];
         $kuantitas = $_POST['kuantitas'];
         $satuankuantitas = $_POST['satuankuantitas'];
     
 
-		$sql = "insert into laporan_harian values(null, '$tanggal', '$kegiatan_harian', '$id_skp_bulanan', '$id_skp_tahunan', '$kuantitas', '$satuankuantitas', 'Belum Disetujui')";
+		$sql = "insert into laporan_harian values(null, '$tanggal', '$kegiatan_harian', '$id_skp_bulanan', '$kuantitas', '$satuankuantitas', 'Belum Disetujui')";
 		$query = mysqli_query($con, $sql);
 		if ($query) {
 			echo "<script>alert('Data berhasil ditambahkan!');window.location.href='detail_index.php?p=laporanhariankinerja'</script>";
@@ -52,21 +51,6 @@
 				      	?>
                     <option value="<?php echo $data['id_skp_bulanan']; ?>">
                     <?php echo $data['kegiatan_bulanan']; ?> </option>
-                <?php
-                    }
-                  ?>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">SKP Tahunan</label>
-              <select name="id_skp_tahunan" class="form-control">
-                <option selected disabled>-- Pilih SKP Tahunan --</option>
-                <?php
-                  $skp_tahunan = mysqli_query($con,"SELECT * FROM skp_tahunan");
-						      while ($data=mysqli_fetch_array($skp_tahunan)) {
-				      	?>
-                    <option value="<?php echo $data['id_skp_tahunan']; ?>">
-                    <?php echo $data['kegiatan_tahunan']; ?> </option>
                 <?php
                     }
                   ?>

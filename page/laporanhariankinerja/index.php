@@ -26,7 +26,6 @@
               <th>Tanggal</th>
               <th>Kegiatan Harian</th>
               <th>SKP Bulanan</th>
-              <th>SKP Tahunan</th>
               <th>Target Kuantitas</th>
               <th>Status</th>
               <th>Aksi</th>
@@ -36,17 +35,16 @@
             	<?php 
 
                 $no = 0;
-            		$sql = "select * from laporan_harian join skp_tahunan on laporan_harian.id_skp_tahunan=skp_tahunan.id_skp_tahunan join skp_bulanan on laporan_harian.id_skp_bulanan=skp_bulanan.id_skp_bulanan";
+            		$sql = "select * from laporan_harian join skp_bulanan on laporan_harian.id_skp_bulanan=skp_bulanan.id_skp_bulanan";
             		$query = mysqli_query($con, $sql);
             		while ($row = mysqli_fetch_assoc($query)):
                   $no++;
             	 ?>
             	<tr>
             	<td><?= $no ?></td>
-            	<td><?= $row['tanggal'] ?></td>
+            	<td><?= date("d M Y", strtotime($row['tanggal'])) ?></td>
                 <td><?= $row['kegiatan_harian'] ?></td>
                 <td><?= $row['kegiatan_bulanan'] ?></td>
-                <td><?= $row['kegiatan_tahunan'] ?></td>
                 <td><?= $row['kuantitas'] ?> <?= $row['satuankuantitas'] ?></td>
                 <td><?= $row['status_laporan_harian'] ?></td>
                 <td>

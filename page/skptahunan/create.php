@@ -41,7 +41,7 @@
               <select name="tahun" class="form-control">
                 <option selected disabled>-- Pilih Tahun --</option>
                 <?php
-                  for($i=date('Y'); $i>=date('Y')-32; $i-=1){
+                  for($i=date('Y'); $i>=date('Y')-5; $i-=1){
                   echo"<option value='$i'> $i </option>";
                   }
                   ?>
