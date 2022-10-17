@@ -64,10 +64,10 @@ while($skp_bulanan = mysqli_fetch_array($result))
                 <option selected disabled>-- Pilih Tahun --</option>
                 <?php
                   $skp_tahunan = mysqli_query($con,"SELECT * FROM skp_tahunan");
-						      while ($data=mysqli_fetch_array($skp_tahunan)) {
+						      while ($data1=mysqli_fetch_array($skp_tahunan)) {
 				      	?>
-                    <option value="<?php echo $data['tahun']; ?>">
-                    <?php echo $data['tahun']; ?> ( <?php echo date("d M Y", strtotime($data['periode_awal'])); ?> - <?php echo date("d M Y", strtotime($data['periode_akhir'])); ?> )</option>
+                    <option value="<?php echo $data1['tahun']; ?>">
+                    <?php echo $data1['tahun']; ?> ( <?php echo date("d M Y", strtotime($data1['periode_awal'])); ?> - <?php echo date("d M Y", strtotime($data1['periode_akhir'])); ?> )</option>
                 <?php
                     }
                   ?>
@@ -97,11 +97,11 @@ while($skp_bulanan = mysqli_fetch_array($result))
                 <option selected disabled>-- Pilih SKP Tahunan --</option>
                 <?php
                   $skp_tahunan = mysqli_query($con,"SELECT * FROM skp_tahunan");
-						      while ($data=mysqli_fetch_array($skp_tahunan)) {
+						      while ($data2=mysqli_fetch_array($skp_tahunan)) {
 				      	?>
-                    <option value="<?php echo $data['id_skp_tahunan']; ?>" 
-                        <?php if($id_skp_tahunan==$data['id_skp_tahunan']) echo 'selected="selected"'; ?>>
-                        <?php echo $data['kegiatan_tahunan']; ?> </option>
+                    <option value="<?php echo $data2['id_skp_tahunan']; ?>" 
+                        <?php if($id_skp_tahunan==$data2['id_skp_tahunan']) echo 'selected="selected"'; ?>>
+                        <?php echo $data2['kegiatan_tahunan']; ?> </option>
                 <?php
                     }
                   ?>

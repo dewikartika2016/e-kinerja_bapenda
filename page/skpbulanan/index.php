@@ -1,7 +1,7 @@
 <?php 
   if (isset($_GET['delete'])) {
     $id_skp_bulanan = $_GET['id_skp_bulanan'];
-    $sql = "delete from skp_bulanan where id_skp_bulanan='$id_skp_bulanan'";
+    $sql = "DELETE from skp_bulanan where id_skp_bulanan='$id_skp_bulanan'";
     $query = mysqli_query($con, $sql);
     if ($query) {
       echo "<script>alert('Data SKP Bulanan Berhasil Dihapus!');window.location.href='detail_index.php?p=skpbulanan'</script>";
@@ -39,7 +39,7 @@
             	<?php 
 
                 $no = 0;
-            		$sql = "select * from skp_bulanan join skp_tahunan on skp_bulanan.id_skp_tahunan=skp_tahunan.id_skp_tahunan";
+            		$sql = "SELECT * from skp_bulanan join skp_tahunan on skp_bulanan.id_skp_tahunan=skp_tahunan.id_skp_tahunan";
             		$query = mysqli_query($con, $sql);
             		while ($row = mysqli_fetch_assoc($query)):
                   $no++;
@@ -50,14 +50,15 @@
                 <td><?= $row['bulan'] ?></td>
                 <td><?= $row['kegiatan_tahunan'] ?></td>
                 <td><?= $row['kegiatan_bulanan'] ?></td>
-                <td><?= $row['target_kuantitas'] ?> <?= $row['satuan_kuantitas'] ?></td>
+                <td><?= $row['target_kuantitas'] ?> 
+                    <?= $row['satuan_kuantitas'] ?></td>
                 <td><?= $row['target_kualitas'] ?></td>
                 <td><?= $row['target_waktu'] ?> Hari</td>
                 <td><?= $row['biaya'] ?></td>
                 <td><?= $row['status_skp_bulanan'] ?></td>
                 <td>
                   <a href="detail_index.php?p=skpbulanan&act=edit&id_skp_bulanan=<?= $row['id_skp_bulanan'] ?>" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
-                  <a href="detail_index.php?p=skpbulanan&delete&id_skp_bulanan=<?= $row['id_skp_bulanan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data Atasan?')"><i class="glyphicon glyphicon-trash"></i></a>
+                  <a href="detail_index.php?p=skpbulanan&delete&id_skp_bulanan=<?= $row['id_skp_bulanan'] ?>" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data?')"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             	 </tr>
             	<?php endwhile; ?>

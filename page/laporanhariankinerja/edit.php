@@ -64,11 +64,11 @@ while($laporan_harian= mysqli_fetch_array($result))
               <select name="id_skp_bulanan" class="form-control">
                 <option selected disabled>-- Pilih SKP Bulanan --</option>
                 <?php
-					while ($data=mysqli_fetch_array($skp_bulanan)) {
+					while ($data1=mysqli_fetch_array($skp_bulanan)) {
 				?>
-                    <option value="<?php echo $data['id_skp_bulanan']; ?>"
-                    <?php if($id_skp_bulanan==$data['id_skp_bulanan']) echo 'selected="selected"'; ?>>
-                        <?php echo $data['kegiatan_bulanan']; ?></option>
+                    <option value="<?php echo $data1['id_skp_bulanan']; ?>"
+                    <?php if($id_skp_bulanan==$data1['id_skp_bulanan']) echo 'selected="selected"'; ?>>
+                        <?php echo $data1['kegiatan_bulanan']; ?></option>
                 <?php
                     }
                   ?>
